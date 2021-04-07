@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, FlatList } from "react-native";
 const ColorScreen = () => {
     const [colors, setColors] = useState([]);
     return (
         <View>
-            <Button title='Add a color' onPress={()=>{setColors([...colors, randomRGB()])}}/>
-            <View
-                style={{
-                    height: 100,
-                    width: 100,
-                    backgroundColor: randomRGB(),
+            <Button
+                title='Add a color'
+                onPress={() => {
+                    setColors([...colors, randomRGB()]);
+                }}
+            />
+
+            <FlatList
+                keyExtractor={(item) => item}
+                data={colors}
+                renderItem={({ item }) => {
+                    return (
+                        <View
+                            style={{
+                                height: 100,
+                                width: 100,
+                                backgroundColor: item,
+                            }}
+                        />
+                    );
                 }}
             />
         </View>

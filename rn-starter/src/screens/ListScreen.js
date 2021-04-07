@@ -20,11 +20,6 @@ const ListScreen = () => {
             }}
         />
     );
-    // return (
-    //     <Text>
-    //         List Screens
-    //     </Text>
-    // )
 };
 
 const styles = StyleSheet.create({
